@@ -1,0 +1,1 @@
+"# chat_app"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/Wolfman1219/chat_app.gitgit push -u origin main
