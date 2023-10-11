@@ -1,12 +1,16 @@
 import requests
 import json
 import generate_text
+from googletrans import Translator
+translator = Translator()
 url = "https://api.edenai.run/v2/text/topic_extraction"
 
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWY3NGIwMjMtNWFhNS00YmRjLThiNjUtMTA4MjlkMWRhZTM2IiwidHlwZSI6ImFwaV90b2tlbiJ9._vY9PWWxSNPUID8KEYNgRc6964ZJaJwWeqZnLuRUCq0"
 
 def get_answer(text_input):
     # text_input = input("Enter your request: ")
+    text_input = translator.translate(text_input, dest='en').text
+    print(text_input)
     payload = {
         "response_as_dict": True,
         "attributes_as_list": False,
