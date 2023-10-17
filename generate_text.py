@@ -2,7 +2,7 @@ import json
 import requests
 from googletrans import Translator
 translator = Translator()
-token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWY3NGIwMjMtNWFhNS00YmRjLThiNjUtMTA4MjlkMWRhZTM2IiwidHlwZSI6ImFwaV90b2tlbiJ9._vY9PWWxSNPUID8KEYNgRc6964ZJaJwWeqZnLuRUCq0"
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTQxMWQ1N2YtZjMyNC00MjE2LTg0ZDMtY2U2MDBhZDFkODFlIiwidHlwZSI6ImFwaV90b2tlbiJ9.rVFouvlDqOD-DaKG1WhWId5IETCr1k4XNiNb-97rNdw"
 headers = {"Authorization": f"Bearer {token}"}
 
 url ="https://api.edenai.run/v2/text/chat"
