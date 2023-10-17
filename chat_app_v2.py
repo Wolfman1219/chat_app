@@ -21,13 +21,13 @@ if prompt := st.chat_input("Assalomu aleykum"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
-
+    data = 'You are a doctor'
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
         if "is_assisted" in st.session_state:
-            assistant_response = generate_text.get_chat_answer(prompt, st.session_state.messages)
+            assistant_response = generate_text.get_chat_answer(prompt, st.session_state.messages, global_action=data)
         else:
             assistant_response = generate_text.get_chat_answer(prompt, None)
         # Simulate stream of response with milliseconds delay

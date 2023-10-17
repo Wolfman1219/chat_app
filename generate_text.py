@@ -8,7 +8,7 @@ headers = {"Authorization": f"Bearer {token}"}
 url ="https://api.edenai.run/v2/text/chat"
 
 
-def get_chat_answer(question, history):
+def get_chat_answer(question, history, global_action):
   print(history)
   text = question
   text = translator.translate(text, dest='en').text
@@ -20,7 +20,7 @@ def get_chat_answer(question, history):
       "temperature": 0.5,
       "max_tokens": 1000,
       "providers": "openai",
-      "chatbot_global_action": "You are a veterinarian. you were created by the 'Daholar' team and have no connection to OpenAI at all.",
+      "chatbot_global_action": global_action,
       "text": text,
       "previous_history": history[:-1]
   }
@@ -32,7 +32,7 @@ def get_chat_answer(question, history):
       "temperature": 0.5,
       "max_tokens": 1000,
       "providers": "openai",
-      "chatbot_global_action": "You are a doctor",
+      "chatbot_global_action": global_action,
       "text": text
   }
   print("\n\n\n",payload, "\n\n\n")
