@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
-        script: cd /home/hasan/Documents/chat; git pull --no-rebase https://wolfman1219:${KEY}@github.com/Wolfman1219/booking.git; 
+        script: cd /home/hasan/Documents/chat_app; git pull --no-rebase https://wolfman1219:${KEY}@github.com/Wolfman1219/booking.git; 
