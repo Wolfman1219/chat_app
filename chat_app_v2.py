@@ -29,7 +29,7 @@ if prompt := st.chat_input("Assalomu aleykum"):
         if "is_assisted" in st.session_state:
             assistant_response = generate_text.get_chat_answer(prompt, st.session_state.messages, global_action=data)
         else:
-            assistant_response = generate_text.get_chat_answer(prompt, None)
+            assistant_response = generate_text.get_chat_answer(prompt, None, global_action=data)
         # Simulate stream of response with milliseconds delay
         for chunk in assistant_response.split():
             full_response += chunk + " "
