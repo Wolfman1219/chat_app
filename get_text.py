@@ -1,5 +1,5 @@
 import bs4
-import urllib
+import urllib.request
 
 url = "https://openai.com/blog/chatgpt-can-now-see-hear-and-speak"
 a_website = urllib.request.urlopen(url)
