@@ -2,6 +2,9 @@ import requests
 import re
 import pandas as pd
 
+API_KEY = ' AIzaSyDXRqqPV3Lgrdnrb-lkjjdIx5Ck8Y6JQcw'
+ENGINE_ID = 'c11340b43f1204f44'
+
 def clean_filename(filename):
     filename = re.sub(r'[\\/*?:"<>|]', "", filename)
     return filename
@@ -24,7 +27,7 @@ def make_request(payload):
         raise Exception('Google API error: %s' % response.status_code)
     return response.json()
 
-def main(query,result_total =10):
+def get_results(query,result_total =10):
     items = []
     reminder = result_total % 10
     if reminder > 0:
@@ -40,15 +43,11 @@ def main(query,result_total =10):
         items.extend(response["items"])
     query_string_clean = clean_filename(query)
     df = pd.json_normalize(items)
-    df.to_excel("Google Search Result_{0}.xlsx".format(query_string_clean), index=False)
+    return list(df.link)
+    # df.to_excel("Google Search Result_{0}.xlsx".format(query_string_clean), index=False)
 
 script = '<script async src="https://cse.google.com/cse.js?cx=c11340b43f1204f44"> \
 </script> \
 <div class="gcse-search"></div>'
 
-API_KEY = ' AIzaSyDXRqqPV3Lgrdnrb-lkjjdIx5Ck8Y6JQcw'
-ENGINE_ID = 'c11340b43f1204f44'
-if __name__ == '__main__':
-    search_query = "ChatGPT"
-    totaal_results = 35
-    main(search_query, totaal_results)
+
