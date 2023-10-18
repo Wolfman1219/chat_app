@@ -10,7 +10,7 @@ def build_payload(query,start = 1, num = 10, date_restrict = 'm1', **params):
     payload = {
         'key':API_KEY,
         'q': query,
-        'cx': start,
+        'cx': ENGINE_ID,
         'num': num,
         'date_restrict': date_restrict
     }
@@ -46,9 +46,9 @@ script = '<script async src="https://cse.google.com/cse.js?cx=c11340b43f1204f44"
 </script> \
 <div class="gcse-search"></div>'
 
+API_KEY = ' AIzaSyDXRqqPV3Lgrdnrb-lkjjdIx5Ck8Y6JQcw'
+ENGINE_ID = 'c11340b43f1204f44'
 if __name__ == '__main__':
-    API_KEY = ' AIzaSyDXRqqPV3Lgrdnrb-lkjjdIx5Ck8Y6JQcw'
-    ENGINE_ID = 'c11340b43f1204f44'
     search_query = "ChatGPT"
     totaal_results = 35
     main(search_query, totaal_results)
