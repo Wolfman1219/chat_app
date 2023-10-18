@@ -21,7 +21,7 @@ def build_payload(query,start = 1, num = 10, date_restrict = 'm1', **params):
 def make_request(payload):
     response = requests.get('https://www.googleapis.com/customsearch/v1',params=payload)
     if response.status_code != 200:
-        raise Exception('Google Custom Search Failed')
+        raise Exception('Google API error: %s' % response.status_code)
     return response.json()
 
 def main(query,result_total =10):
