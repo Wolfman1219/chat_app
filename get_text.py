@@ -1,4 +1,4 @@
-from bs4 import bs4
+import bs4
 import urllib
 
 url = "https://openai.com/blog/chatgpt-can-now-see-hear-and-speak"
