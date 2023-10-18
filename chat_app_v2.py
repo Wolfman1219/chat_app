@@ -3,7 +3,7 @@ import random
 import time
 import topic_extraction
 import generate_text
-st.title("Simple chat")
+st.title("Chat app for crying baby")
 
 # Initialize chat history
 if "messages" not in st.session_state:
