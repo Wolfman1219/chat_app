@@ -14,7 +14,6 @@ url ="https://api.edenai.run/v2/text/chat"
 
 
 def get_chat_answer(question, history, global_action):
-  print(history)
   text = question
   text = translator.translate(text, dest='en').text
   if history is not None:
@@ -42,6 +41,7 @@ def get_chat_answer(question, history, global_action):
   }
   response = requests.post(url, json=payload, headers=headers)
   result = json.loads(response.text)
+  print(result)
   google_query = re.search(r"<<\^\^\^([\w\s]+)\^\^\^>>", text)
   if google_query:
     extracted_text = google_query.group(1)
