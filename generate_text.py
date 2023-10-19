@@ -22,7 +22,7 @@ def get_chat_answer(question, history, global_action):
       "attributes_as_list": False,
       "show_original_response": False,
       "temperature": 0.5,
-      "max_tokens": 5000,
+      "max_tokens": 3000,
       "providers": "openai",
       "chatbot_global_action": global_action,
       "text": text,
@@ -34,7 +34,7 @@ def get_chat_answer(question, history, global_action):
       "attributes_as_list": False,
       "show_original_response": False,
       "temperature": 0.5,
-      "max_tokens": 5000,
+      "max_tokens": 3000,
       "providers": "openai",
       "chatbot_global_action": global_action,
       "text": text
