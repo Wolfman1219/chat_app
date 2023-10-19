@@ -22,7 +22,7 @@ def get_chat_answer(question, history, global_action):
       "attributes_as_list": False,
       "show_original_response": False,
       "temperature": 0.5,
-      "max_tokens": 1000,
+      "max_tokens": 5000,
       "providers": "openai",
       "chatbot_global_action": global_action,
       "text": text,
@@ -34,7 +34,7 @@ def get_chat_answer(question, history, global_action):
       "attributes_as_list": False,
       "show_original_response": False,
       "temperature": 0.5,
-      "max_tokens": 1000,
+      "max_tokens": 5000,
       "providers": "openai",
       "chatbot_global_action": global_action,
       "text": text
@@ -50,7 +50,7 @@ def get_chat_answer(question, history, global_action):
       site_text = get_text_with_site.get_text(links[0])
       summary = get_text_with_site.get_summary(site_text)
       print(summary)
-      get_chat_answer(summary[:990], history, global_action)
+      get_chat_answer(summary, history, global_action)
     except Exception as e:
       print(e)
   else:
