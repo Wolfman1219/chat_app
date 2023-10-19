@@ -18,7 +18,7 @@ firefox_options.add_argument('--no-sandbox')
 def get_text(url):
     driver2 = webdriver.Firefox(service=Service(webdriver_path), options=firefox_options)
     driver2.get(url)
-    div_element = driver2.find_element_by_tag_name("body")
+    div_element = driver2.find_element(By.TAG_NAME,"body")
     text = div_element.text
     driver2.quit()
     return text
