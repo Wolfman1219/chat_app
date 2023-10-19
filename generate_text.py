@@ -5,7 +5,7 @@ import re
 import search_api
 import bs4
 import urllib.request
-
+import get_text_with_site
 translator = Translator()
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTQxMWQ1N2YtZjMyNC00MjE2LTg0ZDMtY2U2MDBhZDFkODFlIiwidHlwZSI6ImFwaV90b2tlbiJ9.rVFouvlDqOD-DaKG1WhWId5IETCr1k4XNiNb-97rNdw"
 headers = {"Authorization": f"Bearer {token}"}
@@ -47,10 +47,7 @@ def get_chat_answer(question, history, global_action):
     extracted_text = google_query.group(1)
     links = search_api.get_results(extracted_text)
     try:
-      a_website = urllib.request.urlopen(links[0])
-      a_soup = bs4.BeautifulSoup(a_website)
-      website_text = set(a_soup.findAll(text = True))
-      site_text = " ".join(website_text)
+      site_text = get_text_with_site.get_text(links[0])
       print(len(site_text), "\n\n")
       print(site_text)
       get_chat_answer(site_text, history, global_action)
