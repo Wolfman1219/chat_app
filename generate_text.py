@@ -48,6 +48,7 @@ def get_chat_answer(question, history, global_action):
     links = search_api.get_results(extracted_text)
     a_website = urllib.request.urlopen(url)
     a_soup = bs4.BeautifulSoup(a_website)
+    print(a_soup)
     get_chat_answer(str(a_soup), history, global_action)
   else:
     return result['openai']['generated_text']
