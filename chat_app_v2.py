@@ -1,7 +1,5 @@
 import streamlit as st
-import random
 import time
-import topic_extraction
 import generate_text
 st.title("Chat app for crying baby")
 
