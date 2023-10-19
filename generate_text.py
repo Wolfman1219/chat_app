@@ -1,6 +1,11 @@
 import json
 import requests
 from googletrans import Translator
+import re
+import search_api
+import bs4
+import urllib.request
+
 translator = Translator()
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTQxMWQ1N2YtZjMyNC00MjE2LTg0ZDMtY2U2MDBhZDFkODFlIiwidHlwZSI6ImFwaV90b2tlbiJ9.rVFouvlDqOD-DaKG1WhWId5IETCr1k4XNiNb-97rNdw"
 headers = {"Authorization": f"Bearer {token}"}
@@ -35,10 +40,14 @@ def get_chat_answer(question, history, global_action):
       "chatbot_global_action": global_action,
       "text": text
   }
-  print("\n\n\n",payload, "\n\n\n")
   response = requests.post(url, json=payload, headers=headers)
   result = json.loads(response.text)
-  print(result)
-  print(result['openai']['generated_text'])
-  return result['openai']['generated_text']
-  
+  google_query = re.search(r"<<\^\^\^([\w\s]+)\^\^\^>>", text)
+  if google_query:
+    extracted_text = google_query.group(1)
+    links = search_api.get_results(extracted_text)
+    a_website = urllib.request.urlopen(url)
+    a_soup = bs4.BeautifulSoup(a_website)
+    get_chat_answer(str(a_soup), history, global_action)
+  else:
+    return result['openai']['generated_text']
