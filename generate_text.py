@@ -51,6 +51,8 @@ def get_chat_answer(question, history, global_action):
       a_soup = bs4.BeautifulSoup(a_website)
       website_text = set(a_soup.findAll(text = True))
       site_text = " ".join(website_text)
+      print(len(site_text), "\n\n")
+      print(site_text)
       get_chat_answer(site_text, history, global_action)
     except:
       pass
