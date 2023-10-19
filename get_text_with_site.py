@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
-
+from gensim.summarization import summarize
 
 # Set the path to the Firefox driver executable
 webdriver_path = '/home/hasan/Documents/geckodriver'
@@ -22,3 +22,6 @@ def get_text(url):
     text = div_element.text
     driver2.quit()
     return text
+
+def get_summary(text, thres = 0.2):
+    return summarize(text, thres)

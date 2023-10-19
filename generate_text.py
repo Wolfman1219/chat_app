@@ -48,9 +48,8 @@ def get_chat_answer(question, history, global_action):
     links = search_api.get_results(extracted_text)
     try:
       site_text = get_text_with_site.get_text(links[0])
-      print(len(site_text), "\n\n")
-      print(site_text)
-      get_chat_answer(site_text, history, global_action)
+      summary = get_text_with_site.get_summary(site_text)
+      get_chat_answer(summary, history, global_action)
     except:
       pass
   else:
