@@ -21,7 +21,7 @@ if prompt := st.chat_input("Assalomu aleykum"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
-    data = "You are a doctor, If you don't know any question you can ask for google search just type <<^^^question for searching google^^^>> end of your answer"
+    data = "You are a doctor. You can acces the internet. If you don't know any question you can ask for google search just type <<^^^question for searching google^^^>> end of your answer"
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
