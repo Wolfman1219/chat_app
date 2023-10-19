@@ -42,7 +42,7 @@ def get_chat_answer(question, history, global_action):
   response = requests.post(url, json=payload, headers=headers)
   result = json.loads(response.text)
   print(result)
-  google_query = re.search(r"<<\^\^\^([\w\s]+)\^\^\^>>", text)
+  google_query = re.search(r"<<\^\^\^([\w\s]+)\^\^\^>>", result['openai']['generated_text'])
   if google_query:
     extracted_text = google_query.group(1)
     links = search_api.get_results(extracted_text)
